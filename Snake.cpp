@@ -17,31 +17,31 @@ void Snake::move(Direction dir) {
         rectangle.move(0.f, -0.5);
         lastDir = Direction::Up;
     }
-    /*else if (dir == Direction::Up && lastDir == Direction::Down){
+    else if (dir == Direction::Up && lastDir == Direction::Down){
         rectangle.move(0.f, 0.5);
-    }*/
+    }
     else if (dir == Direction::Down && lastDir != Direction::Up){
         rectangle.move(0.f, 0.5);
         lastDir = Direction::Down;
     }
-   /* else if (dir == Direction::Down && lastDir == Direction::Up){
+    else if (dir == Direction::Down && lastDir == Direction::Up){
         rectangle.move(0.f, -0.5);
-    }*/
+    }
     else if (dir == Direction::Right && lastDir != Direction::Left){
         rectangle.move(0.5, 0.f);
         lastDir = Direction::Right;
     }
-    /*else if (dir == Direction::Right && lastDir == Direction::Left){
+    else if (dir == Direction::Right && lastDir == Direction::Left){
         rectangle.move(-0.5, 0.f);
 
-    }*/
+    }
     else if (dir == Direction::Left && lastDir != Direction::Right){
         rectangle.move(-0.5, 0.f);
         lastDir = Direction::Left;
     }
-    /*else if (dir == Direction::Left && lastDir == Direction::Right){
+    else if (dir == Direction::Left && lastDir == Direction::Right){
         rectangle.move(0.5, 0.f);
-    }*/
+    }
     else{
         dir = lastDir;
     }
