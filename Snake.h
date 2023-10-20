@@ -14,6 +14,9 @@ public:
     void draw(sf::RenderWindow& window) const;
     sf::RectangleShape rectangle;
     Direction lastDir = Up;
+    void AddSnake();
+private:
+    std::vector<Snake> snakeSection;
 
 };
 

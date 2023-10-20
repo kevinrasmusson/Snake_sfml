@@ -12,7 +12,11 @@ Snake::Snake(float x, float y) {
     rectangle.setPosition(x,y);
 }
 
+void Snake::AddSnake() {
+
+}
 void Snake::move(Direction dir) {
+    
    if (dir == Direction::Up && lastDir != Direction::Down){
         rectangle.move(0.f, -0.5);
         lastDir = Direction::Up;
