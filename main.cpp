@@ -2,12 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include "Direction.h"
 #include "Snake.h"
-
+#include "Game.h"
 int main() {
-    // Create a window
+    Game game;
+   /* // Create a window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
+//    window.setFramerateLimit(60);
     Snake snake(window.getSize().x/2, window.getSize().y/2);
-    Direction currentDir;
+
     while (window.isOpen()) {
         sf::Event event{};
         while (window.pollEvent(event)) {
@@ -17,29 +19,28 @@ int main() {
             if (event.type == sf::Event::KeyPressed) {
                 switch (event.key.code) {
                     case sf::Keyboard::Up:
-                        currentDir = Direction::Up;
+                        snake.addDirection(Up);
                         break;
                     case sf::Keyboard::Down:
-                        currentDir = Direction::Down;
+                        snake.addDirection(Down);
                         break;
                     case sf::Keyboard::Left:
-                        currentDir = Direction::Left;
+                        snake.addDirection(Left);
                         break;
                     case sf::Keyboard::Right:
-                        currentDir = Direction::Right;
+                        snake.addDirection(Right);
                         break;
                     default:
                         break;
-
                 }
-
             }
+
         }
-        snake.move(currentDir);
+        snake.move();
         window.clear();
         snake.draw(window);
         window.display();
     }
-
+*/
     return 0;
 }

@@ -10,47 +10,48 @@ Snake::Snake(float x, float y) {
     rectangle.setSize(sf::Vector2f(20, 20));
     rectangle.setFillColor(sf::Color::White);
     rectangle.setPosition(x,y);
-}
-
-void Snake::AddSnake() {
 
 }
-void Snake::move(Direction dir) {
-    
-   if (dir == Direction::Up && lastDir != Direction::Down){
-        rectangle.move(0.f, -0.5);
-        lastDir = Direction::Up;
-    }
-    else if (dir == Direction::Up && lastDir == Direction::Down){
-        rectangle.move(0.f, 0.5);
-    }
-    else if (dir == Direction::Down && lastDir != Direction::Up){
-        rectangle.move(0.f, 0.5);
-        lastDir = Direction::Down;
-    }
-    else if (dir == Direction::Down && lastDir == Direction::Up){
-        rectangle.move(0.f, -0.5);
-    }
-    else if (dir == Direction::Right && lastDir != Direction::Left){
-        rectangle.move(0.5, 0.f);
-        lastDir = Direction::Right;
-    }
-    else if (dir == Direction::Right && lastDir == Direction::Left){
-        rectangle.move(-0.5, 0.f);
 
-    }
-    else if (dir == Direction::Left && lastDir != Direction::Right){
-        rectangle.move(-0.5, 0.f);
-        lastDir = Direction::Left;
-    }
-    else if (dir == Direction::Left && lastDir == Direction::Right){
-        rectangle.move(0.5, 0.f);
-    }
-    else{
-        dir = lastDir;
-    }
+/*void Snake::addDirection(Direction dir) {
+    movementQueue.push_back(dir);
+}
 
+void Snake::applyDirection(Direction dir) {
+   // if (!movementQueue.empty()){
+    if (dir == Up) {
+        rectangle.move(0.f, -0.5);
+    } else if (dir == Down) {
+        rectangle.move(0.f, 0.5);
+    } else if (dir == Right) {
+        rectangle.move(0.5, 0.f);
+    } else if (dir == Left) {
+        rectangle.move(-0.5, 0.f);
+    }
+   // movementQueue.pop_back(); // Pop the direction after moving
+
+
+
+}
+void Snake::move() {
+    if (!movementQueue.empty()){
+        Direction nextDir = movementQueue.front();
+        applyDirection(nextDir);
+        movementQueue.pop_back();
+    }
+}
+
+void Snake::setDirection(sf::Vector2f newPos) {
+    pos = newPos;
 }
 void Snake::draw(sf::RenderWindow& window) const {
     window.draw(rectangle);
+}*/
+
+const sf::Vector2f &Snake::getPos() const {
+    return rectangle.getPosition();
+}
+
+void Snake::setPos(const sf::Vector2f &pos) {
+    rectangle.setPosition(pos);
 }
