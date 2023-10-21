@@ -4,10 +4,20 @@
 
 #ifndef SNAKE_FOOD_H
 #define SNAKE_FOOD_H
-
+#include <SFML/Graphics.hpp>
+#include "Direction.h"
+#include "Snake.h"
+#include "SnakeSegment.h"
 
 class Food {
+public:
+    Food(float x, float y);
+    sf::CircleShape circle;
+    const sf::Vector2f &getPos() const;
+    void setPos(const sf::Vector2f &pos);
+    void draw(sf::RenderWindow& window) const;
 
+private:
 };
 
 

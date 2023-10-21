@@ -4,24 +4,20 @@
 
 #include "Game.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "Direction.h"
 #include "Snake.h"
 #include "SnakeSegment.h"
+#include "Food.h"
 
 Game::Game() {
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
     window.setFramerateLimit(15);
-    Snake snake(window.getSize().x/2, window.getSize().y/2);
     SnakeSegment snakeSegment;
-    snakeSegment.AddSnake();
-    snakeSegment.AddSnake();
-    snakeSegment.AddSnake();
-    snakeSegment.AddSnake();
-    snakeSegment.AddSnake();
-    snakeSegment.AddSnake();
-    snakeSegment.AddSnake();
-    snakeSegment.AddSnake();
+    Food food(10,10);
+    snakeSegment.start();
+    bool isGameOver = false;
     bool isUp = false;
     bool isDown = false;
     bool isLeft = false;
@@ -70,12 +66,24 @@ Game::Game() {
         else if(isDown){
             snakeSegment.setDirection(Down);
         }
-
-
-        //snake.move();
+        if (snakeSegment.snakeCollison()){
+            std::cout << "Snake collision" << std::endl;
+            isGameOver = true;
+        }
+        if (isGameOver) {
+            snakeSegment.start();
+            isUp = false;
+            isDown = false;
+            isLeft = false;
+            isRight = false;
+            isGameOver = false; // Reset the game state
+        }
+        if (snakeSegment.foodCollision(food)){
+            snakeSegment.AddSnake();
+        }
         window.clear();
         snakeSegment.draw(window);
-        //snake.draw(window);
+        food.draw(window);
         window.display();
     }
 

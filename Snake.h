@@ -6,15 +6,11 @@
 #define SNAKE_SNAKE_H
 #include <SFML/Graphics.hpp>
 #include "Direction.h"
-#include <queue>
+#include <vector>
 
 class Snake {
 public:
     Snake(float x, float y);
-   /* void move();
-    void setDirection(sf::Vector2f newPos);
-    void addDirection(Direction dir);
-    void draw(sf::RenderWindow& window) const;*/
     sf::RectangleShape rectangle;
     const sf::Vector2f &getPos() const;
 
@@ -23,7 +19,6 @@ public:
 private:
     sf::Vector2f pos;
     std::vector<Direction> movementQueue;
-    void applyDirection(Direction dir);
 
 };
 

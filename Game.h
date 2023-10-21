@@ -11,7 +11,6 @@
 class Game {
 public:
     Game();
-    void AddSnake();
 private:
     std::vector<Snake> snakes;
 };
