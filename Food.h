@@ -14,7 +14,7 @@ public:
     Food(float x, float y);
     sf::CircleShape circle;
     const sf::Vector2f &getPos() const;
-    void setPos(const sf::Vector2f &pos);
+    void setPos();
     void draw(sf::RenderWindow& window) const;
 
 private:

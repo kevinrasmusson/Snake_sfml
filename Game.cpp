@@ -15,7 +15,7 @@ Game::Game() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
     window.setFramerateLimit(15);
     SnakeSegment snakeSegment;
-    Food food(10,10);
+    Food food(200,200);
     snakeSegment.start();
     bool isGameOver = false;
     bool isUp = false;
@@ -66,6 +66,11 @@ Game::Game() {
         else if(isDown){
             snakeSegment.setDirection(Down);
         }
+        if (snakeSegment.getSnakes()[0].getPos() == food.getPos()){
+            std::cout << "Food collision" << std::endl;
+            food.setPos();
+            snakeSegment.AddSnake();
+        }
         if (snakeSegment.snakeCollison()){
             std::cout << "Snake collision" << std::endl;
             isGameOver = true;
@@ -77,9 +82,6 @@ Game::Game() {
             isLeft = false;
             isRight = false;
             isGameOver = false; // Reset the game state
-        }
-        if (snakeSegment.foodCollision(food)){
-            snakeSegment.AddSnake();
         }
         window.clear();
         snakeSegment.draw(window);

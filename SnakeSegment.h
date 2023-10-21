@@ -18,8 +18,11 @@ public:
     void applyDirection(Snake &snake, Direction dir);
     size_t Size();
     bool snakeCollison();
+
+    const std::vector<Snake> &getSnakes() const;
+
     void start();
-    bool foodCollision(Food& food);
+
 private:
     std::vector<Snake> snakes;
     std::vector<sf::Vector2f> movementQueue;

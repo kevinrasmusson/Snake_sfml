@@ -17,6 +17,7 @@ void SnakeSegment::AddSnake() {
 void SnakeSegment::start() {
     if (!snakes.empty()){
         snakes.clear();
+        prevDir = None;
     }
     for (int i = 0; i < 10; ++i) {
         AddSnake();
@@ -84,12 +85,11 @@ void SnakeSegment::applyDirection(Snake &snake, Direction dir) {
 
 }
 
-bool SnakeSegment::foodCollision(Food& food) {
-    if (snakes[0].getPos() == food.getPos()){
-        return true;
-    }
-    return false;
-}
+
 size_t SnakeSegment::Size() {
     return snakes.size();
+}
+
+const std::vector<Snake> &SnakeSegment::getSnakes() const {
+    return snakes;
 }
