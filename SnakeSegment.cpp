@@ -2,6 +2,7 @@
 // Created by kevin on 2023-10-20.
 //
 
+#include <iostream>
 #include "SnakeSegment.h"
 SnakeSegment::SnakeSegment() {}
 void SnakeSegment::AddSnake() {
@@ -65,6 +66,7 @@ void SnakeSegment::setDirection(Direction dir) {
     for (int i = 1; i < snakes.size(); i++) {
         snakes[i].rectangle.setPosition(prevPositions[i - 1]);
     }
+
 }
 
 

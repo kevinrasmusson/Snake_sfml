@@ -7,10 +7,12 @@
 #include <SFML/Graphics.hpp>
 #include "Direction.h"
 #include "Snake.h"
+#include "SnakeSegment.h"
 
 class Game {
 public:
     Game();
+    bool wallCollision(SnakeSegment& snakeSegment,sf::RenderWindow& window);
 private:
     std::vector<Snake> snakes;
 };
