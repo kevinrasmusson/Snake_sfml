@@ -14,10 +14,9 @@ public:
     sf::RectangleShape rectangle;
     const sf::Vector2f &getPos() const;
 
-    void setPos(const sf::Vector2f &pos);
+
 
 private:
-    sf::Vector2f pos;
     std::vector<Direction> movementQueue;
 
 };

@@ -13,6 +13,7 @@ class Game {
 public:
     Game();
     bool wallCollision(SnakeSegment& snakeSegment,sf::RenderWindow& window);
+    bool foodCollision(SnakeSegment& snakeSegment,Food& food);
 private:
     std::vector<Snake> snakes;
 };

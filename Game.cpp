@@ -66,7 +66,7 @@ Game::Game() {
         else if(isDown){
             snakeSegment.setDirection(Down);
         }
-        if (snakeSegment.getSnakes()[0].getPos() == food.getPos()){
+        if (foodCollision(snakeSegment, food)){
             std::cout << "Food collision" << std::endl;
             food.setPos();
             snakeSegment.AddSnake();
@@ -104,6 +104,13 @@ bool Game::wallCollision(SnakeSegment &snakeSegment, sf::RenderWindow& window) {
     // Check if the snake's head goes out of the window's bounds
     if (snakeHeadPos.x < 0 || snakeHeadPos.x >= windowSize.x ||
         snakeHeadPos.y < 0 || snakeHeadPos.y >= windowSize.y) {
+        return true;
+    }
+    return false;
+}
+
+bool Game::foodCollision(SnakeSegment &snakeSegment, Food &food) {
+    if (snakeSegment.getSnakes()[0].getPos() == food.getPos()){
         return true;
     }
     return false;

@@ -16,6 +16,3 @@ const sf::Vector2f &Snake::getPos() const {
     return rectangle.getPosition();
 }
 
-void Snake::setPos(const sf::Vector2f &pos) {
-    rectangle.setPosition(pos);
-}
