@@ -1,20 +1,19 @@
-//
-// Created by kevin on 2023-10-20.
-//
-
+/**
+ *@author Kevin Rasmusson
+ *@version 1.1
+ */
 #include "Game.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Direction.h"
-#include "Snake.h"
 #include "SnakeSegment.h"
+#include "Snake.h"
 #include "Food.h"
-
 Game::Game() {
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SnakeSegment");
     window.setFramerateLimit(15);
-    SnakeSegment snakeSegment;
+    Snake snakeSegment;
     Food food(200,200);
     snakeSegment.start();
     bool isGameOver = false;
@@ -76,7 +75,7 @@ Game::Game() {
             isGameOver = true;
         }
         if (snakeSegment.snakeCollison()){
-            std::cout << "Snake collision" << std::endl;
+            std::cout << "SnakeSegment collision" << std::endl;
             isGameOver = true;
         }
         if (isGameOver) {
@@ -96,9 +95,14 @@ Game::Game() {
 
 
 }
-
-bool Game::wallCollision(SnakeSegment &snakeSegment, sf::RenderWindow& window) {
-    sf::Vector2f snakeHeadPos = snakeSegment.getSnakes()[0].getPos();
+/**
+ * This function checks for collision between the snake's head and the "walls" of the window
+ * @param snakeSegment
+ * @param window
+ * @return boolean value
+ */
+bool Game::wallCollision(Snake &snake, sf::RenderWindow& window) {
+    sf::Vector2f snakeHeadPos = snake.getSnakes()[0].getPos();
     sf::Vector2u windowSize = window.getSize();
 
     // Check if the snake's head goes out of the window's bounds
@@ -108,9 +112,14 @@ bool Game::wallCollision(SnakeSegment &snakeSegment, sf::RenderWindow& window) {
     }
     return false;
 }
-
-bool Game::foodCollision(SnakeSegment &snakeSegment, Food &food) {
-    if (snakeSegment.getSnakes()[0].getPos() == food.getPos()){
+/**
+ * This function checks if the snake head collides with the food
+ * @param snakeSegment
+ * @param food
+ * @return boolean value
+ */
+bool Game::foodCollision(Snake &snake, Food &food) {
+    if (snake.getSnakes()[0].getPos() == food.getPos()){
         return true;
     }
     return false;

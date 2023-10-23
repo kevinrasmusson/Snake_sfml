@@ -1,13 +1,13 @@
-//
-// Created by kevin on 2023-10-17.
-//
-
+/**
+ *@author Kevin Rasmusson
+ *@version 1.1
+ */
 #ifndef SNAKE_FOOD_H
 #define SNAKE_FOOD_H
 #include <SFML/Graphics.hpp>
 #include "Direction.h"
-#include "Snake.h"
 #include "SnakeSegment.h"
+#include "Snake.h"
 
 class Food {
 public:

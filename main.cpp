@@ -1,7 +1,7 @@
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include "Direction.h"
-#include "Snake.h"
+/**
+ *@author Kevin Rasmusson
+ *@version 1.1
+ */
 #include "Game.h"
 int main() {
     Game game;

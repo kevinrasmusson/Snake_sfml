@@ -1,23 +1,32 @@
 //
-// Created by kevin on 2023-10-17.
+// Created by kevin on 2023-10-20.
 //
 
 #ifndef SNAKE_SNAKE_H
 #define SNAKE_SNAKE_H
-#include <SFML/Graphics.hpp>
+#include "SnakeSegment.h"
 #include "Direction.h"
-#include <vector>
+#include "Food.h"
 
 class Snake {
 public:
-    Snake(float x, float y);
-    sf::RectangleShape rectangle;
-    const sf::Vector2f &getPos() const;
+    Snake();
+    void AddSnake();
+    void draw(sf::RenderWindow& window) const;
+    void setDirection(Direction dir);
+    Direction OppositeDirection(Direction dir);
+    void applyDirection(SnakeSegment &snake, Direction dir);
+    size_t Size();
+    bool snakeCollison();
 
+    const std::vector<SnakeSegment> &getSnakes() const;
 
+    void start();
 
 private:
-    std::vector<Direction> movementQueue;
+    std::vector<SnakeSegment> snakes;
+    std::vector<sf::Vector2f> movementQueue;
+    Direction prevDir;
 
 };
 
